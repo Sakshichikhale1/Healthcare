@@ -1,28 +1,32 @@
 services:
-  # Backend API
+  # Backend API - Web Service
   - type: web
-    name: clinicos-api
+    name: healthcare-api
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
     rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000
     envVars:
       - key: DATABASE_URL
         sync: false
       - key: OPENAI_API_KEY
         sync: false
+      - key: SECRET_KEY
+        sync: false
       - key: ALLOWED_ORIGINS
-        value: "*" # Change this to your frontend URL after deployment
+        value: "*"
 
-  # Frontend Static Site
+  # Frontend - Static Site
   - type: web
-    name: clinicos-frontend
+    name: healthcare-frontend
     env: static
+    rootDir: frontend
     buildCommand: npm install && npm run build
-    staticPublishPath: dist
+    staticPublishPath: dist/client
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     envVars:
       - key: VITE_API_URL
-        fromService:
-          name: clinicos-api
-          type: web
-          property: host
+        sync: false

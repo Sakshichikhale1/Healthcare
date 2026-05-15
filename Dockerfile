@@ -1,9 +1,9 @@
 # Build Frontend
 FROM node:20-slim AS frontend-build
-WORKDIR /frontend
-COPY package*.json ./
+WORKDIR /frontend-app
+COPY frontend/package*.json ./
 RUN npm install
-COPY . .
+COPY frontend/ ./
 RUN npm run build
 
 # Build Backend & Final Image
@@ -24,7 +24,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ ./
 
 # Copy built frontend from stage 1
-COPY --from=frontend-build /frontend/dist ./static
+COPY --from=frontend-build /frontend-app/dist/client ./static
 
 # Expose port
 EXPOSE 8000

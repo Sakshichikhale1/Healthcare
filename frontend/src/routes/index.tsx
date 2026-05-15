@@ -108,9 +108,6 @@ function Landing() {
             <a href="#testimonials" className="transition hover:text-foreground">Customers</a>
           </nav>
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/app/dashboard">Sign in</Link>
-            </Button>
             <Button size="sm" asChild className="bg-gradient-primary shadow-glow">
               <Link to="/app/dashboard">
                 Open app <ArrowRight className="ml-1 h-3.5 w-3.5" />
@@ -142,17 +139,9 @@ function Landing() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button size="lg" asChild className="bg-gradient-primary shadow-glow">
                 <Link to="/app/dashboard">
-                  Request Demo <ArrowRight className="ml-2 h-4 w-4" />
+                  Open app <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/app/dashboard">Start Free Trial</Link>
-              </Button>
-            </div>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-success" /> HIPAA & SOC 2 Type II</span>
-              <span className="inline-flex items-center gap-1.5"><Zap className="h-3.5 w-3.5 text-primary" /> Setup in under a week</span>
-              <span className="inline-flex items-center gap-1.5"><Workflow className="h-3.5 w-3.5 text-teal-foreground" /> Works with your EHR</span>
             </div>
           </div>
 
@@ -350,10 +339,7 @@ function Landing() {
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
               <Button size="lg" asChild className="bg-gradient-primary shadow-glow">
-                <Link to="/app/dashboard">Request Demo <ArrowRight className="ml-2 h-4 w-4" /></Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/app/dashboard">Start Free Trial</Link>
+                <Link to="/app/dashboard">Open app <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button>
             </div>
           </div>

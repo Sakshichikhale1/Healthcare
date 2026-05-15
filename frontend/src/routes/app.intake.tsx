@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { UploadCloud, Mic, FileText, Check, Sparkles, ShieldAlert } from "lucide-react";
+import { UploadCloud, FileText, Check, Sparkles, ShieldAlert } from "lucide-react";
 
 export const Route = createFileRoute("/app/intake")({
   head: () => ({ meta: [{ title: "Patient Intake · ClinicOS AI" }] }),
@@ -202,9 +202,7 @@ function Intake() {
                 </div>
               ))}
             </div>
-            <button className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-border bg-secondary/20 py-3 text-xs text-muted-foreground transition hover:bg-secondary/50">
-              <Mic className="h-3.5 w-3.5" /> Upload voice consultation
-            </button>
+
           </Card>
 
           <Card className="p-5">
